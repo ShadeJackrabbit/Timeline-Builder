@@ -27,10 +27,11 @@ with open('events.csv', newline='') as csvfile:
 			category    = row.index('Category')
 			description = row.index('Description')
 		else:
-			node_list.append("<div event-year='%s' class='event %s'>\n\t<h1>%s</h1>\n\t<span>%s</span>\n</div>\n" % (row[year], row[category], row[event], row[description]))
+			node_list.append("<div event-year='%s' class='event %s'>\n\t<h1><span>%s</span>%s</h1>\n\t<span>%s</span>\n</div>\n" % (row[year], row[category], row[year], row[event], row[description]))
 			category_colors[row[category]] = '#FFFFFF'
-
 html_content = '\n'.join(node_list)
+
+span_nodes = ["\n<span></span>" for i in range(21)]
 
 # Choose the category colors
 color_div = len(category_colors.keys())
@@ -45,15 +46,15 @@ for key in category_colors.keys():
 	index_nodes.append('<p class="%s">&squf; %s</p>' % (key, key))
 
 # Create the page
-style_content = '\n\t'.join(style_list)
-css_node = "<style>\n\t%s\n</style>" % (style_content)
+css_node = "<style>\n\t%s\n</style>" % ('\n\t'.join(style_list))
 css_external_node = '<link rel="stylesheet" type="text/css" href="style.css"></link>'
 js_sizzle_node = '<script src="https://cdnjs.cloudflare.com/ajax/libs/sizzle/2.0.0/sizzle.min.js"></script>'
 js_underscore_node = '<script src="http://underscorejs.org/underscore-min.js"></script>'
 js_external_node = '<script src="align.js"></script>'
 index_node = '<div id="index">%s\n</div>' % ("\n".join(index_nodes))
+divider_node = "<div id='divider'>\n%s\n</div>" % ("\n".join(span_nodes))
 
-html_site = "<html>\n%s\n%s\n<body>\n%s\n%s\n%s\n<div id='divider'></div></body>%s\n%s\n</html>" % (js_underscore_node, js_sizzle_node, html_content, index_node, css_node, css_external_node, js_external_node)
+html_site = "<html>\n%s\n%s\n<body>\n%s\n%s\n%s\n%s\n</body>%s\n%s\n</html>" % (js_underscore_node, js_sizzle_node, html_content, index_node, divider_node, css_node, css_external_node, js_external_node)
 
 # Save the page file
 with open('timeline.html', 'w') as htmlfile:
