@@ -1,8 +1,14 @@
 body { font-family: Arial; }
 
-h1   {
+h1 {
 	font-size: larger;
 	margin-bottom: 0px;
+}
+
+h1 span {
+	position: relative;
+	padding: 0 12px 0 12px;
+	color: black;
 }
 
 .event {
@@ -10,6 +16,32 @@ h1   {
 	position: absolute;
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+.event.right {
+	right: 51%;
+	text-align: right;
+}
+
+.event.left {
+	left: 51%;
+	text-align: left;
+}
+
+.event::after {
+	position: absolute;
+	font-size: 28pt;
+	top: 0px;
+}
+
+.event.right::after {
+	content: '\25D6';
+	right: -17px;
+}
+
+.event.left::after {
+	content: '\25D7';
+	left: -17px;
 }
 
 #index {
@@ -22,4 +54,14 @@ h1   {
 	background-color: white;
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+#divider {
+	margin-left: 48.5%;
+	margin-right: 48%;
+	background-color: #EEE;
+	position: absolute;
+	width: 2%;
+	height: 98%;
+	z-index: -10;
 }

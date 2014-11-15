@@ -1,4 +1,5 @@
 var event = Sizzle('.event');
+var event_after = Sizzle('.event:after');
 var oldestYear = Number(event[0].getAttribute('event-year'));
 var newestYear = oldestYear;
 var i = 0;
@@ -10,15 +11,12 @@ for (i = event.length - 1; i >= 0; i--) {
 	if (event_year > newestYear) newestYear = event_year;
 };
 
+// Arrange the items
 for (i = event.length - 1; i >= 0; i--) {
 	var event_year = Number(event[i].getAttribute('event-year'));
 	event[i].style.top = ((event_year - oldestYear) / (newestYear - oldestYear)) * 90 + '%';
-	if (i % 2 == 0) {
-		event[i].style.right = 51 + '%';
-		event[i].style.textAlign = "right";
-	} else {
-		event[i].style.left = 51 + '%';
-	}
+	if (i % 2 == 0) { event[i].className = event[i].className + " right";	}
+	else { event[i].className = event[i].className + " left"; }
 };
 
 Number.prototype.between  = function (a, b) {

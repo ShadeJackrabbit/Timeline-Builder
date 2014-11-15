@@ -50,10 +50,10 @@ css_node = "<style>\n\t%s\n</style>" % (style_content)
 css_external_node = '<link rel="stylesheet" type="text/css" href="style.css"></link>'
 js_sizzle_node = '<script src="https://cdnjs.cloudflare.com/ajax/libs/sizzle/2.0.0/sizzle.min.js"></script>'
 js_underscore_node = '<script src="http://underscorejs.org/underscore-min.js"></script>'
-js_external_node = '<script src="align.js" type="text/javascript"></script>'
+js_external_node = '<script src="align.js"></script>'
 index_node = '<div id="index">%s\n</div>' % ("\n".join(index_nodes))
 
-html_site = "<html>\n%s\n%s\n<body>\n%s\n%s\n%s\n%s\n%s\n</body></html>" % (js_underscore_node, js_sizzle_node, html_content, index_node, css_node, css_external_node, js_external_node)
+html_site = "<html>\n%s\n%s\n<body>\n%s\n%s\n%s\n<div id='divider'></div></body>%s\n%s\n</html>" % (js_underscore_node, js_sizzle_node, html_content, index_node, css_node, css_external_node, js_external_node)
 
 # Save the page file
 with open('timeline.html', 'w') as htmlfile:
