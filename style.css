@@ -1,0 +1,23 @@
+body { font-family: Arial; }
+
+h1 {
+	font-size: 11pt;
+	margin-bottom: 0px;
+}
+
+.event {
+	display: block;
+	position: absolute;
+}
+
+#index {
+	display: block;
+	position: fixed;
+	bottom: 15px;
+	left: 15px;
+	padding: 5px;
+	border: 1px black solid;
+	background-color: white;
+	font-weight: bold;
+	text-transform: uppercase;
+}

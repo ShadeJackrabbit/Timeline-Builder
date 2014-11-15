@@ -11,6 +11,7 @@ description = 3
 # List of HTML nodes
 node_list = []
 style_list = []
+index_nodes = []
 
 # Dictionary of colors
 # Starts with defaults and gets changed later
@@ -40,10 +41,18 @@ for index, key in enumerate(category_colors.keys()):
 	category_colors[key] = hex_color
 	style_list.append(".%s { color: %s; }" % (key, hex_color))
 
+for key in category_colors.keys():
+	index_nodes.append('<p class="%s">&squf; %s</p>' % (key, key))
+
 # Create the page
 style_content = '\n\t'.join(style_list)
 css_node = "<style>\n\t%s\n</style>" % (style_content)
-html_site = "<html><body>\n%s\n%s\n</body></html>" % (html_content, css_node)
+css_external_node = '<link rel="stylesheet" type="text/css" href="style.css"></link>'
+js_jquery_node = '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>'
+js_external_node = '<script src="align.js" type="text/javascript"></script>'
+index_node = '<div id="index">%s\n</div>' % ("\n".join(index_nodes))
+
+html_site = "<html>\n%s\n<body>\n%s\n%s\n%s\n%s\n%s\n</body></html>" % (js_jquery_node, html_content, index_node, css_node, css_external_node, js_external_node)
 
 # Save the page file
 with open('timeline.html', 'w') as htmlfile:
