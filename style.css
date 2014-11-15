@@ -1,13 +1,15 @@
 body { font-family: Arial; }
 
-h1 {
-	font-size: 11pt;
+h1   {
+	font-size: larger;
 	margin-bottom: 0px;
 }
 
 .event {
 	display: block;
 	position: absolute;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 #index {
