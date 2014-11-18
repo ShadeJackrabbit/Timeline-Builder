@@ -1,6 +1,6 @@
 body { 
 	font-family: "Economica";
-	margin: 0 8px 0 8px;
+	margin: 0 0 0 0;
 }
 
 h1 {
@@ -45,8 +45,6 @@ h1 span {
 	top: 0px;
 }
 
-.event.right year-pin { right: -16px; }
-.event.left  year-pin { left:  -16px; }
 .event.right year-pin::after { content: '\25D6'; }
 .event.left  year-pin::after { content: '\25D7'; }
 
@@ -67,7 +65,7 @@ h1 span {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	margin: 10px 48.5% 40px 48.5%;
+	margin: 10px 49% 40px 49%;
 	background-color: #EEE;
 	position: fixed;
 	width: 2%;
@@ -79,5 +77,5 @@ h1 span {
 	position: relative;
 	font-weight: bold;
 	color: #666;
-	text-align: middle;
+	text-align: center;
 }

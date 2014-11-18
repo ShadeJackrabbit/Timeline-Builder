@@ -1,8 +1,10 @@
-var event = Sizzle('.event');
-var event_after = Sizzle('.event:after');
+function $(selector) { return Sizzle(selector); }
+
+var event = $('.event');
+var event_after = $('.event:after');
 var oldestYear = Number(event[0].getAttribute('event-year'));
 var newestYear = oldestYear;
-var yearMarkers = Sizzle("#divider span");
+var yearMarkers = $("#divider span");
 var i = 0;
 
 // Loop through the events and find the oldest and newest years
@@ -48,15 +50,17 @@ function doCollide(elementOne, elementTwo) {
 }
 
 function respace(event) {
-	var event = Sizzle('.event');
-	document.body.style.fontSize = window.innerWidth / 100 + 'pt';
-	_.each(Sizzle('h1 span'),         function(element) { element.style.fontSize = window.innerWidth /  40 + 'pt' });
-	_.each(Sizzle('#divider span'),   function(element) { element.style.fontSize = window.innerWidth / 160 + 'pt' });
-	_.each(Sizzle('.event year-pin'), function(element) { element.style.fontSize = window.innerWidth /  60 + 'pt' });
+	var event = $('.event');
+	document.body.style.fontSize = window.innerWidth / 45 + 'pt';
+	_.each($('h1 span'),         function(element) { element.style.fontSize = window.innerWidth /  40 + 'pt' });
+	_.each($('#divider span'),   function(element) { element.style.fontSize = window.innerWidth / 160 + 'pt' });
+	_.each($('.event year-pin'), function(element) { element.style.fontSize = window.innerWidth /  60 + 'pt' });
+	_.each($('.event.left year-pin'),  function(element) { element.style.left  = -window.innerWidth * 1.3 / 100 + 'px'});
+	_.each($('.event.right year-pin'), function(element) { element.style.right = -window.innerWidth * 1.3 / 100 + 'px'});
 	for (i = event.length - 1; i >= 0; i--) {
 		event[i].style.maxWidth = "49%";
-		if (doCollide(event[i], Sizzle('#index')[0])) {
-			event[i].style.maxWidth = document.body.clientWidth * 0.49 - Sizzle('#index')[0].offsetWidth - 45 +'px';
+		if (doCollide(event[i], $('#index')[0])) {
+			event[i].style.maxWidth = document.body.clientWidth * 0.49 - $('#index')[0].offsetWidth - 45 +'px';
 		}
 	}
 };
