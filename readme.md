@@ -5,6 +5,7 @@ An interpreter to take a CSV file of a timeline and turn that into an HTML5 visu
 
 ##Requirements
 * [Economica Font](http://www.fontsquirrel.com/fonts/economica)
+* Roboto Font
 * Any program to write a CSV. Notepad will do.
 * Python 3.4
 * Something to read HTML files. A browser will do ;)

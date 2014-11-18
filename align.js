@@ -50,7 +50,9 @@ function doCollide(elementOne, elementTwo) {
 function respace(event) {
 	var event = Sizzle('.event');
 	document.body.style.fontSize = window.innerWidth / 100 + 'pt';
-	_.each(Sizzle('h1 span'), function(element) { element.style.fontSize = window.innerWidth / 40 + 'pt' });
+	_.each(Sizzle('h1 span'),         function(element) { element.style.fontSize = window.innerWidth /  40 + 'pt' });
+	_.each(Sizzle('#divider span'),   function(element) { element.style.fontSize = window.innerWidth / 160 + 'pt' });
+	_.each(Sizzle('.event year-pin'), function(element) { element.style.fontSize = window.innerWidth /  60 + 'pt' });
 	for (i = event.length - 1; i >= 0; i--) {
 		event[i].style.maxWidth = "49%";
 		if (doCollide(event[i], Sizzle('#index')[0])) {

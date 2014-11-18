@@ -27,7 +27,7 @@ with open('events.csv', newline='') as csvfile:
 			category    = row.index('Category')
 			description = row.index('Description')
 		else:
-			node_list.append("<div event-year='%s' class='event %s'>\n\t<h1><span>%s</span>%s</h1>\n\t<span>%s</span>\n</div>\n" % (row[year], row[category], row[year], row[event], row[description]))
+			node_list.append("<div event-year='%s' class='event %s'><year-pin></year-pin>\n\t<h1><span>%s</span>%s</h1>\n\t<span>%s</span>\n</div>\n" % (row[year], row[category], row[year], row[event], row[description]))
 			category_colors[row[category]] = '#FFFFFF'
 html_content = '\n'.join(node_list)
 
@@ -43,7 +43,7 @@ for index, key in enumerate(category_colors.keys()):
 	style_list.append(".%s { color: %s; }" % (key, hex_color))
 
 for key in category_colors.keys():
-	index_nodes.append('<p class="%s">&squf; %s</p>' % (key, key))
+	index_nodes.append('<span class="%s">&squf; %s</span>' % (key, key))
 
 # Create the page
 css_node = "<style>\n\t%s\n</style>" % ('\n\t'.join(style_list))
