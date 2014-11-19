@@ -42,7 +42,7 @@ h1 span {
 
 .event year-pin {
 	position: absolute;
-	top: 0px;
+	top: 0px; 
 }
 
 .event.right year-pin::after { content: '\25D6'; }
@@ -52,7 +52,7 @@ h1 span {
 	display: flex;
 	flex-direction: column;
 	position: fixed;
-	bottom: 15px;
+	bottom: 50%;
 	left: 15px;
 	padding: 5px;
 	border: 1px black solid;
@@ -62,20 +62,22 @@ h1 span {
 }
 
 #divider {
+	position: absolute;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	margin: 10px 49% 40px 49%;
+	justify-content: space-between;
+	margin: 10px 48.5% 0px 48.5%;
 	background-color: #EEE;
-	position: fixed;
-	width: 2%;
-	height: calc(100% - 50px);
+	height: 90%;
+	width: 3%;
 	z-index: -10;
 }
 
 #divider span {
 	position: relative;
 	font-weight: bold;
-	color: #666;
+	color: #888;
 	text-align: center;
+	transform: rotate(90deg);
+	transform-origin: middle center 0;
 }

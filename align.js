@@ -52,11 +52,11 @@ function doCollide(elementOne, elementTwo) {
 function respace(event) {
 	var event = $('.event');
 	document.body.style.fontSize = window.innerWidth / 45 + 'pt';
-	_.each($('h1 span'),         function(element) { element.style.fontSize = window.innerWidth /  40 + 'pt' });
-	_.each($('#divider span'),   function(element) { element.style.fontSize = window.innerWidth / 160 + 'pt' });
-	_.each($('.event year-pin'), function(element) { element.style.fontSize = window.innerWidth /  60 + 'pt' });
-	_.each($('.event.left year-pin'),  function(element) { element.style.left  = -window.innerWidth * 1.3 / 100 + 'px'});
-	_.each($('.event.right year-pin'), function(element) { element.style.right = -window.innerWidth * 1.3 / 100 + 'px'});
+	_.each($('h1 span'),         function(element) { element.style.fontSize = window.innerWidth / 20 + 'pt' });
+	_.each($('#divider span'),   function(element) { element.style.fontSize = window.innerWidth / 40 + 'pt' });
+	_.each($('.event year-pin'), function(element) { element.style.fontSize = window.innerWidth / 25 + 'pt' });
+	_.each($('.event.left year-pin'),  function(element) { element.style.left  = -window.innerWidth * 1.6 / 100 + 'px'});
+	_.each($('.event.right year-pin'), function(element) { element.style.right = -window.innerWidth * 1.6 / 100 + 'px'});
 	for (i = event.length - 1; i >= 0; i--) {
 		event[i].style.maxWidth = "49%";
 		if (doCollide(event[i], $('#index')[0])) {
