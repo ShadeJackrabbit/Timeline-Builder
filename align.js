@@ -22,20 +22,6 @@ for (i = 0; i < yearMarkers.length; i++) {
 	yearMarkers[i].innerHTML = oldestYear + (yearIncrement*i);
 }
 
-// Arrange the items
-for (i = event.length - 1; i >= 0; i--) {
-	var event_year = Number(event[i].getAttribute('event-year'));
-	event[i].style.top = ((event_year - oldestYear) / yearRange) * 90 + '%';
-	if (i % 2 == 0) { event[i].className = event[i].className + " right"; }
-	else { event[i].className = event[i].className + " left"; }
-};
-
-Number.prototype.between  = function (a, b) {
-    var min = Math.min.apply(Math, [a,b]),
-        max = Math.max.apply(Math, [a,b]);
-    return this > min && this < max;
-};
-
 // Check for a collision between two elements
 function doCollide(elementOne, elementTwo) {
 	var boxOne = elementOne.getBoundingClientRect(),
@@ -50,21 +36,40 @@ function doCollide(elementOne, elementTwo) {
     } return true;
 }
 
+// Arrange the items
+for (i = 0; i < event.length; i++) {
+	var event_year = Number(event[i].getAttribute('event-year'));
+	event[i].style.top = ((event_year - oldestYear) / yearRange) * 90 + '%';
+};
+
+Number.prototype.between  = function (a, b) {
+    var min = Math.min.apply(Math, [a,b]),
+        max = Math.max.apply(Math, [a,b]);
+    return this > min && this < max;
+};
+
 // Line everything properly up
 function respace(event) {
 	var event = $('.event');
 	document.body.style.fontSize = window.innerWidth / 45 + 'pt';
-	_.each($('h1 span'),         	   function(element) { element.style.fontSize =  window.innerWidth       /  20 + 'pt' });
-	_.each($('#divider span'),  	   function(element) { element.style.fontSize =  window.innerWidth       /  40 + 'pt' });
-	_.each($('.event year-pin'),	   function(element) { element.style.fontSize =  window.innerWidth       /  25 + 'pt' });
-	_.each($('.event.left year-pin'),  function(element) { element.style.left  	  = -window.innerWidth * 2.6 / 100 + 'px' });
-	_.each($('.event.right year-pin'), function(element) { element.style.right    = -window.innerWidth * 2.6 / 100 + 'px' });
-	for (i = event.length - 1; i >= 0; i--) {
-		event[i].style.maxWidth = "49%";
+	_.each($('#divider span'),   function(element) { element.style.fontSize =  window.innerWidth / 40 + 'pt' });
+	for (i = 0; i < event.length; i++) {
 		if (doCollide(event[i], $('#index')[0])) {
 			event[i].style.maxWidth = document.body.clientWidth * 0.49 - $('#index')[0].offsetWidth - 45 +'px';
 		}
+		if (i > 0) {
+			while (doCollide(event[i], event[i-1])) {
+				event[i].style.left = event[i].getBoundingClientRect().left + window.innerWidth / 3 + 25 + 'px';
+			}
+		}
 	}
+	_.each($('.event year-pin'), function(element) {
+		element.style.fontSize =  window.innerWidth / 25 + 'pt';
+		element.style.left     =  -element.getBoundingClientRect().left + window.innerWidth /  6 + 'px';
+	});
+	_.each($('.event .title span'), function(element) {
+		element.style.left     =  -element.getBoundingClientRect().left + window.innerWidth / 15 + 'px';
+	});
 };
 
 window.addEventListener('resize', _.debounce(respace, 500));

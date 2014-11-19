@@ -2,41 +2,26 @@ body, p, h1 { margin:      0 0 0 0;     }
 body        { font-family: "Economica"; }
 h1          { font-size:   larger;      }
 
-.event .title {
-	display: flex;
-	flex-direction: row;
-}
-
 .event .title span {
 	color: #000;
-	margin: 0 5px 0 5px;
+	position: absolute;
+	top: 10px;
 }
 
-.event.right .title span {
-	order: -1;
-}
+.event, .event year-pin { position: absolute; }
+.event year-pin::after  { content:  '\25C0';  }
 
-.event.right .title          { justify-content: flex-end; }
-.event, .event year-pin      { position:        absolute; }
-.event.right year-pin::after { content:         '\25D6';  }
-.event.left  year-pin::after { content:         '\25D7';  }
-
-.event.right {
-	right: 52%;
-	text-align: right;
-}
-
-.event.left {
-	left: 52%;
-	text-align: left;
+.event { 
+	max-width: 33%;
+	left: 22%;
 }
 
 #index {
 	display: flex;
 	flex-direction: column;
 	position: fixed;
-	bottom: 50%;
-	left: 15px;
+	bottom: 70%;
+	right: 15px;
 	padding: 5px;
 	border: 1px black solid;
 	background-color: white;
@@ -49,7 +34,7 @@ h1          { font-size:   larger;      }
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0 48.5% 0 48.5%;
+	margin: 0 0 0 15%;
 	background-color: #EEE;
 	height: 92%;
 	width: 3%;
