@@ -1,52 +1,35 @@
-body { 
-	font-family: "Economica";
-	margin: 0 0 0 0;
+body, p, h1 { margin:      0 0 0 0;     }
+body        { font-family: "Economica"; }
+h1          { font-size:   larger;      }
+
+.event .title {
+	display: flex;
+	flex-direction: row;
 }
 
-h1 {
-	font-size: larger;
-	margin: 0 0 0 0;
+.event .title span {
+	color: #000;
+	margin: 0 5px 0 5px;
 }
 
-h1 span {
-	position: absolute;
-	top: 20%;
-	color: #EEE;
-	z-index: -5;
-	text-shadow: 0px 0px 2px #DDD;
-	font-family: "Roboto";
-	font-weight: 800;
+.event.right .title span {
+	order: -1;
 }
 
-.right h1 span { right: 15px; }
-.left h1 span { left: 15px; }
-
-.event {
-	display: block;
-	position: absolute;
-	margin-top: 0.5%;
-	padding-left: 15px;
-	padding-right: 15px;
-	vertical-align: middle;
-}
+.event.right .title          { justify-content: flex-end; }
+.event, .event year-pin      { position:        absolute; }
+.event.right year-pin::after { content:         '\25D6';  }
+.event.left  year-pin::after { content:         '\25D7';  }
 
 .event.right {
-	right: 51%;
+	right: 52%;
 	text-align: right;
 }
 
 .event.left {
-	left: 51%;
+	left: 52%;
 	text-align: left;
 }
-
-.event year-pin {
-	position: absolute;
-	top: 0px; 
-}
-
-.event.right year-pin::after { content: '\25D6'; }
-.event.left  year-pin::after { content: '\25D7'; }
 
 #index {
 	display: flex;
@@ -66,9 +49,9 @@ h1 span {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 10px 48.5% 0px 48.5%;
+	margin: 0 48.5% 0 48.5%;
 	background-color: #EEE;
-	height: 90%;
+	height: 92%;
 	width: 3%;
 	z-index: -10;
 }
