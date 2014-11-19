@@ -59,7 +59,7 @@ function respace(event) {
 		}
 		if (i > 0) {
 			while (doCollide(event[i], event[i-1])) {
-				event[i].style.left = event[i].getBoundingClientRect().left + window.innerWidth / 3 + 25 + 'px';
+				event[i].style.left = event[i].getBoundingClientRect().left + window.innerWidth / 3 + 'px';
 			}
 		}
 	}

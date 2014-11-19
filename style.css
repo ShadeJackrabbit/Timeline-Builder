@@ -12,7 +12,7 @@ h1          { font-size:   larger;      }
 .event year-pin::after  { content:  '\25C0';  }
 
 .event { 
-	max-width: 33%;
+	max-width: 32%;
 	left: 22%;
 }
 
